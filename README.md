@@ -1,1 +1,1 @@
-# chili-big-go
+# big-go
