@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # shellcheck shell=bash disable=SC1091,SC2039,SC2166
 #
-#  r
+#  r.sh
 #  Created: 2024/08/15 - 13:55
 #  Altered: 2024/08/15 - 13:55
 #
