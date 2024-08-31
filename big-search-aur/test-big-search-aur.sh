@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # shellcheck shell=bash disable=SC1091,SC2039,SC2166
 #
-#  t
+#  test-big-search-aur.sh
 #  Created: 2024/08/14 - 11:51
 #  Altered: 2024/08/14 - 11:51
 #
