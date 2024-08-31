@@ -1,6 +1,5 @@
 /*
   colors.go - constantes para cores ANSI
-    go get github.com/go-ini/ini
     Chili GNU/Linux - https://github.com/vcatafesta/chili/go
     Chili GNU/Linux - https://chililinux.com
     Chili GNU/Linux - https://chilios.com.br
