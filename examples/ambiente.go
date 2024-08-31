@@ -3,12 +3,21 @@ package main
 import (
 	"fmt"
 	"os"
+	"github.com/vcatafesta/chili-go/examples/colors"
 )
+
+var p = fmt.Println
 
 func main() {
 	// Obtém o valor da variável de ambiente "PATH"
 	path := os.Getenv("PATH")
 	shell := os.Getenv("SHELL")
-	fmt.Println("PATH:", path)
-	fmt.Println("SHELL:", shell)
+	p("PATH               :", path)
+	p("SHELL              :", shell)
+	p("USER               :", os.Getenv("USER"))
+	p("XDG_SESSION_DESKTOP:", os.Getenv("XDG_SESSION_DESKTOP"))
+	p( + "XDG_SESSION_TYPE   :", os.Getenv("XDG_SESSION_TYPE"))
+
+
+
 }
