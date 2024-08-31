@@ -14,6 +14,9 @@ require (
 
 require (
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
+	github.com/karrick/godirwalk v1.12.0 // indirect
+	github.com/pkg/errors v0.8.1 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
+	github.com/uudashr/gopkgs/v2 v2.1.2 // indirect
 	golang.org/x/sys v0.0.0-20200722175500-76b94024e4b6 // indirect
 )
