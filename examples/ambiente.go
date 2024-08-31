@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"colors/colors"
+	"github.com/vcatafesta/chili-go/colors"
 )
 
 var p = fmt.Println
