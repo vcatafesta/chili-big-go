@@ -1,0 +1,125 @@
+1. Estrutura do Projeto
+Vamos criar a seguinte estrutura de diretórios:
+
+/myapp
+  |-- go.mod
+  |-- main.go
+  |-- /colors
+        |-- colors.go
+        |-- go.mod
+2. Criar o Submódulo de Cores
+Passo 1: Crie o diretório do projeto
+mkdir -p myapp/colors
+cd myapp
+Passo 2: Inicialize o módulo principal
+No diretório myapp, crie o arquivo go.mod:
+
+go mod init github.com/seuusuario/myapp
+Passo 3: Inicialize o submódulo de cores
+Agora, entre no diretório colors e inicialize um novo módulo Go para ele:
+
+cd colors
+go mod init github.com/seuusuario/myapp/colors
+Passo 4: Crie o arquivo colors.go
+No diretório colors, crie o arquivo colors.go com algumas constantes de cores:
+
+package colors
+
+const (
+    Red   = "#FF0000"
+    Green = "#00FF00"
+    Blue  = "#0000FF"
+)
+3. Criar o Aplicativo Principal
+Passo 1: Volte ao diretório principal
+cd ..
+Passo 2: Crie o arquivo main.go
+No diretório myapp, crie o arquivo main.go:
+
+package main
+
+import (
+    "fmt"
+    "github.com/seuusuario/myapp/colors"
+)
+
+func main() {
+    fmt.Println("Red color:", colors.Red)
+    fmt.Println("Green color:", colors.Green)
+    fmt.Println("Blue color:", colors.Blue)
+}
+4. Conectar o Submódulo ao Projeto Principal
+Passo 1: Adicione o submódulo ao projeto principal
+No diretório myapp, execute:
+
+go mod tidy
+Isso irá adicionar automaticamente o submódulo github.com/seuusuario/myapp/colors ao seu projeto principal.
+
+5. Executar o Aplicativo
+Agora, você pode executar o aplicativo principal:
+
+go run main.go
+Resumo
+Você criou um projeto Go com um submódulo para constantes de cores.
+O submódulo foi inicializado separadamente, e o módulo principal foi configurado para utilizá-lo.
+Esse submódulo poderia ser reutilizado em outros projetos ou compartilhado em um repositório separado, se necessário.
+
+#############################################################################################################################
+
+go run ambiente.go
+# command-line-arguments
+./ambiente.go:6:2: "github.com/vcatafesta/chili-go/colors" imported and not used
+./ambiente.go:19:5: undefined: Red
+
+
+O ChatGPT disse:
+ChatGPT
+O erro que você está recebendo indica que o pacote "github.com/vcatafesta/chili-go/colors" foi importado, mas não está sendo usado, e que a variável Red não está definida.
+
+Aqui está como você pode resolver isso:
+
+
+1. Verifique o Import
+Primeiro, certifique-se de que o pacote colors está sendo importado corretamente no arquivo ambiente.go.
+Se você importou o pacote mas não o utilizou, o compilador Go gerará um erro.
+
+2. Utilize o Pacote Importado
+Se você importou o pacote colors, você precisa utilizá-lo no código. Além disso, certifique-se de que você está usando as constantes definidas no pacote.
+
+Aqui está um exemplo corrigido do código:
+
+package main
+
+import (
+    "fmt"
+    "github.com/vcatafesta/chili-go/colors"
+)
+
+func main() {
+    fmt.Println("Red color:", colors.Red)
+    fmt.Println("Green color:", colors.Green)
+    fmt.Println("Blue color:", colors.Blue)
+}
+3. Defina e Utilize as Constantes
+Se o pacote colors não tiver a constante Red definida, você precisará definir essas constantes no pacote colors.
+
+4. Certifique-se de que o Pacote colors está Configurado Corretamente
+No pacote colors, defina as cores da seguinte forma:
+
+Arquivo colors/colors.go:
+go
+Copiar código
+package colors
+
+const (
+    Red   = "#FF0000"
+    Green = "#00FF00"
+    Blue  = "#0000FF"
+)
+5. Execute o Programa Novamente
+Agora, execute o programa novamente:
+
+bash
+Copiar código
+go run ambiente.go
+Se tudo estiver configurado corretamente, o programa deve compilar e executar sem erros, exibindo as constantes de cores definidas.

@@ -1,0 +1,61 @@
+Estrutura do Projeto
+/myapp
+  |-- go.mod
+  |-- main.go
+/colors
+  |-- colors.go
+  |-- go.mod
+
+1. Configurar o Módulo Local
+Passo 1: Criar e Configurar o Módulo Local
+No diretório /colors, inicialize o módulo Go:
+cd colors
+go mod init colors
+Defina as constantes de cores no arquivo colors.go:
+
+package colors
+
+const (
+    Red   = "#FF0000"
+    Green = "#00FF00"
+    Blue  = "#0000FF"
+)
+Passo 2: Configurar o Projeto Principal para Usar o Módulo Local
+No diretório /myapp, inicialize o módulo Go (se ainda não tiver feito isso):
+
+cd ../myapp
+go mod init myapp
+Edite o arquivo go.mod no diretório /myapp para referenciar o módulo local e adicionar um replace:
+
+module myapp
+
+go 1.20
+
+require colors v0.0.0
+
+replace colors => ../colors
+A linha replace colors => ../colors diz ao Go para usar o módulo local colors que está localizado no diretório pai.
+
+Passo 3: Adicionar e Utilizar o Módulo Local
+No diretório /myapp, crie ou edite o arquivo main.go para usar as constantes do módulo local:
+
+package main
+
+import (
+    "fmt"
+    "colors" // O nome do módulo local
+)
+
+func main() {
+    fmt.Println("Red color:", colors.Red)
+    fmt.Println("Green color:", colors.Green)
+    fmt.Println("Blue color:", colors.Blue)
+}
+2. Executar o Aplicativo
+No diretório /myapp, execute:
+
+go run main.go
+Resumo
+Inicialize o módulo local no diretório colors.
+Configure o go.mod do projeto principal (/myapp) para usar o módulo local com o comando replace que aponta para o diretório ../colors.
+Utilize as constantes do módulo local no código principal.

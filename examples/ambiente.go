@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/vcatafesta/chili-go/colors"
+	"colors"
 )
 
 var p = fmt.Println
@@ -15,7 +15,7 @@ func main() {
 	p("PATH               :", path)
 	p("SHELL              :", shell)
 	p("USER               :", os.Getenv("USER"))
-	p("XDG_SESSION_DESKTOP:", os.Getenv("XDG_SESSION_DESKTOP"))
-	p( Red + "XDG_SESSION_TYPE   :", os.Getenv("XDG_SESSION_TYPE"))
+	p( colors.Red + "XDG_SESSION_DESKTOP:", colors.Cyan + os.Getenv("XDG_SESSION_DESKTOP"))
+	p( colors.Red + "XDG_SESSION_TYPE   :", colors.Cyan + os.Getenv("XDG_SESSION_TYPE"))
 
 }
